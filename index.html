@@ -1,51 +1,50 @@
 <!DOCTYPE html>
-<html>
+
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>YouTube Downloader</title>
-  <style>* {
-    text-align: center;
-}
-.heading {
-    font-family: Arial;
-    margin-top:40vh;
-}
-.URL-input, .convert-button {
-    font-size:1.3em;
-    padding:5px 10px;
-}
-.URL-input {
-    border-radius:4px 0px 0px 4px;
-    width:30em;
-    text-align: left;
-    border:2px solid #EEEEEE;
-    background: #EEEEEE;
-    outline:none;
-}
-.URL-input:focus {
-    border:2px solid #0485ff;
-}
-.convert-button {
-    border-radius:0px 4px 4px 0px;
-    border:2px solid #0485ff;
-    background: #0485ff;
-    color:white;
-}</style>
-  <script>var convertBtn = document.querySelector('.convert-button');
-var URLinput = document.querySelector('.URL-input');
-convertBtn.addEventListener('click', () => {
-    console.log(`URL: ${URLinput.value}`);
-    sendURL(URLinput.value);
-});
-function sendURL(URL) {
-          fetch(`https://https://downloader-ml.glitch.me/download?URL=${URL}`, {
-        method:'GET'
-    }).then(res => res.json())
-    .then(json => console.log(json));
-}</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1 class="heading">My Own YouTube Downloader !</h1>
-    <input class="URL-input" placeholder="Video URL e.g. https://www.youtube.com/watch?v=MtN1YnoL46Q">
-    <button class="convert-button">Convert</button>
+        <div class="container">
+            <div>
+            <h1 class="header">YouTube Downloader & Converter</h1>
+            </div>
+
+            <div class="options">
+                <form>
+                <label>
+                    <strong>Conversion Type</strong>
+                </label>
+                <select class="input-audio-video" id="format">
+                    <option value="audio-only">MP3: Audio only (No video)</option>
+                    <option value="video-only">MP4: Video only (No audio) </option>
+                    <option value="video&audio" selected>MP4: Video and Audio</option>
+                </select>
+                <label>
+                    <strong>Quality</strong>
+                </label>
+                <select id="quality">
+                    <option value="high" selected>Highest</option>
+                    <option value="low">Lowest</option>
+                </select>
+                </form>
+            </div>
+            <div class="input-button">
+            <label>
+                <input class="input-url" placeholder="https://www.youtube.com/watch?v=6aYzu1HXrrU">
+            </label>
+            <button class="button-convert">Convert</button>
+            </div>
+            <div class="status">
+                <h3 id="downloading"></h3>
+            </div>
+        </div>
+    <script src="script.js" async defer></script>
 </body>
+
 </html>
