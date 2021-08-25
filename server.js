@@ -1,7 +1,3 @@
-/**
-* This is the main Node.js server script for your project
-* Check out the two endpoints this back-end API provides in fastify.get and fastify.post below
-*/
 
 const path = require("path");
 
@@ -20,17 +16,14 @@ fastify.register(require("fastify-static"), {
   prefix: "/" // optional: default '/'
 });
 
-// fastify-formbody lets us parse incoming forms
 fastify.register(require("fastify-formbody"));
 
-// point-of-view is a templating manager for fastify
 fastify.register(require("point-of-view"), {
   engine: {
     handlebars: require("handlebars")
   }
 });
 
-// Load and parse SEO data
 const seo = require("./src/seo.json");
 if (seo.url === "glitch-default") {
   seo.url = `https://${process.env.PROJECT_DOMAIN}.glitch.me`;
