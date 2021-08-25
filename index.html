@@ -99,28 +99,52 @@ h2 spam {
   font-size: .5em; 
 }</style>
     </head>
-    <body>
+    <body onload="alloff()">
         <div id="banner">
            <header>
     <h1 data-text="Youtube Downloader">Youtube Downloader</h1>
     <h2>Enter Link</h2>
   </header>
+          <script>
+  function alloff(){
+    document.getElementById("audiosearch").disabled=true;
+    document.getElementById("videosearch").disabled=true;
+  }        
+  function videooff() {
+    document.getElementById("audiosearch").disabled=true;
+    document.getElementById("videosearch").disabled=false;
+}
+ function audiooff() {
+   document.getElementById("audiosearch").disabled=false;
+   document.getElementById("videosearch").disabled=true;
+ }
+    </script>
+          </script>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                      <div class="form-group">
+                      <h5>
+                        MP3 <input type="checkbox" id="audio" name="audio" value="Audio" onclick="videooff()">
+                      </h5>
+                      <h5>
+                        MP4 <input type="checkbox" id="video" name="video" value="Video" onclick="audiooff()">
+                      </h5>
+                        <form action="/download/" method="GET" id="videosearch">
+                            <div class="form-group">
                                 <input class="form-control" type="text" name="url" placeholder="" required />
                             </div>
-                        <form action="/download" method="GET">
                             <div class="form-group text-center">
                                 <input class="btn btn-primary" type="submit" value="Download" />
                             </div>
                         </form>
-                      <!form action="/downloadaudio" method="GET">
-                            <!div class="form-group text-center">
-                                <!input class="btn btn-primary" type="submit" value="Download Audio" />
-                            <!/div>
-                        <!/form>
+                      <form action="/downloadaudio/" method="GET" id="audiosearch">
+                        <div class="form-group">
+                                <input class="form-control" type="text" name="url" placeholder="" required />
+                            </div>
+                            <div class="form-group text-center">
+                                <input class="btn btn-primary" type="submit" value="Download Audio" />
+                            </div>
+                      </form>
                     </div>
                 </div>
             </div>
