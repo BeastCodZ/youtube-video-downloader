@@ -20,6 +20,6 @@ app.get('/download', (req, res) => {
 
 app.get('/downloadmp3', (req, res) => {
     var url = req.query.url;    
-    res.header("Content-Disposition", 'attachment;\  filename="song.mp3');    
-    ytdl(url, {format: 'mp3'}).pipe(res);
+    res.header("Content-Disposition", 'attachment;\  filename="song.mp3');
+    ytdl(url, {filter: 'audioonly'}).pipe(res);
 });
