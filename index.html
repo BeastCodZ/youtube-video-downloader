@@ -130,19 +130,19 @@ h2 spam {
                         MP4 <input type="checkbox" id="video" name="video" value="Video" onclick="audiooff()">
                       </h5>
                         <form action="/download/" method="GET" id="videosearch">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="url" placeholder="" required />
+                            <div class="form-group" id="videosearch">
+                                <input class="form-control" type="text" id="videosearch" name="url" placeholder="" required />
                             </div>
-                            <div class="form-group text-center">
-                                <input class="btn btn-primary" type="submit" value="Download" />
+                            <div class="form-group text-center" id="videosearch">
+                                <input class="btn btn-primary" type="submit" value="Download" id="videosearch" />
                             </div>
                         </form>
                       <form action="/downloadaudio/" method="GET" id="audiosearch">
-                        <div class="form-group">
-                                <input class="form-control" type="text" name="url" placeholder="" required />
+                        <div class="form-group" id="audiosearch">
+                                <input class="form-control" type="text" id="audiosearch" name="url" placeholder="" required />
                             </div>
-                            <div class="form-group text-center">
-                                <input class="btn btn-primary" type="submit" value="Download Audio" />
+                            <div class="form-group text-center" id="audiosearch">
+                                <input class="btn btn-primary" id="audiosearch" type="submit" value="Download Audio" />
                             </div>
                       </form>
                     </div>
