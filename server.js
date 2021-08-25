@@ -15,16 +15,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/download', (req, res) => {
-    var url = req.query.url;    
+    var url = req.query.url;
+    res.sendFile('success.html', { root: './' });
     res.header("Content-Disposition", 'attachment;\  filename="Video.mp4');    
     ytdl(url, {format: 'mp4'}).pipe(res);
+  
 });
-app.get('/convert', (req, res) => {   
-var url = req.query.url;
-let stream = ytdl(url, {quality: 'highestaudio'});
-  ffmpeg(stream).audioBitrate(128)
-  console.log("loading")
-});
+
 app.get('/downloadmp3', (req, res) => {   
   var url = req.query.url;
     res.header("Content-Disposition", 'attachment;\  filename="song.mp3');
