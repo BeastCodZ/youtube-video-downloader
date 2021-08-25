@@ -13,7 +13,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/download', (req, res) => {
-    var url = req.query.url;
-    res.header("Content-Disposition", 'attachment; filename='video.mp4');
+    var url = req.query.url;    
+    res.header("Content-Disposition", 'attachment;\  filename="Video.mp4');    
     ytdl(url, {format: 'mp4'}).pipe(res);
+});
+
+app.get('/downloadmp3', (req, res) => {
+    var url = req.query.url;    
+    res.header("Content-Disposition", 'attachment;\  filename="song.mp3');    
+    ytdl(url, {format: 'mp3'}).pipe(res);
 });
